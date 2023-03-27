@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+|#9FE9F5|学生|
+|#85DEC9|系办|
+
+start
+repeat
+:对修课与成绩统计表进行分析;
+:对学生本学期学习情况进行排名;
+:将学生排名进行公示;
+backward :修改成绩;
+if (学生对自己成绩是否有异议) is (是) then
+    |#9FE9F5|学生|
+  :联系系办进行重新审核;
+  |#85DEC9|系办|
+  :重新审核;
+
+
+endif
+repeat while(学生对自己成绩有异议且审核通过)
+:生成奖励凭证;
+:发放奖励以及证书;
+stop
+@enduml

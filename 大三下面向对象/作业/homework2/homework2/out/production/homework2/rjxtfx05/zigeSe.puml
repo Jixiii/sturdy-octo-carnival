@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor       学生 #9FE9F5
+actor 系办 #85DEC9
+
+activate 学生 #9FE9F5
+学生 -> 系办 :学籍资格管理请求
+activate 系办 #85DEC9
+loop 直到审理意见为通过
+系办 -> 系办:系办审理
+系办 -> 系办: 给出审理意见;
+alt 审理意见为通过
+系办 -> 系办:更新学生名册;
+系办 -> 学生: 将学籍资格变动通知学生
+
+else 审理意见为不通过
+系办 -> 学生: 发出提示
+学生 -> 系办 :修改申请;
+
+end
+end
+deactivate 系办
+deactivate 学生
+@enduml

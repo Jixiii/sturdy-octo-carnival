@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:scanner.nextInt();
+if (num < 0) is (yes) then
+  :tempNum = -num;
+  :outputStr.append("negative ");
+else (no)
+  :tempNum = num;
+endif
+
+if (num>999999999)then
+:throw new Exception("超过数据范围");
+stop
+else
+if (tempNum > 1000000)
+:outputStr.append xxx million;
+:tempNum %= 1000000;
+endif
+if (tempNum > 1000)
+:outputStr.append xxx thousand;
+:tempNum %= 1000;
+endif
+if (tempNum > 0)
+:outputStr.append xxx;
+endif
+stop
+
+
+@enduml

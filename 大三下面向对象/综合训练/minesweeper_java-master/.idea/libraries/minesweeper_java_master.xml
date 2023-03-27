@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="minesweeper_java-master">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/文档/javadoc" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/源代码/java_saolei/src" />
+    </SOURCES>
+  </library>
+</component>

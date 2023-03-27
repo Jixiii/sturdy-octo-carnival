@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor       学生 #9FE9F5
+actor       系办 #85DEC9
+
+activate 系办 #85DEC9
+loop 直到学生对自己成绩没\n有异议或者审核不通过
+系办 -> 系办 :对修课与成绩统计表进行分析
+系办 -> 系办:对学生本学期学习情况进行排名
+系办 -> 学生:将学生排名进行公示
+activate 学生 #9FE9F5
+alt 学生对自己成绩有异议
+学生 -> 系办 :联系系办进行重新审核
+系办 -> 系办 :重新审核
+end
+end
+系办 -> 系办 :生成奖励凭证
+系办 -> 学生:发放奖励以及证书
+deactivate 学生 #9FE9F5
+deactivate 系办 #85DEC9
+
+
+
+
+
+
+@enduml

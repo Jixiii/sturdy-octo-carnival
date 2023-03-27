@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+
+start
+:String string = "";
+if (hour < 10?) is (yes) then
+  :string += "0" + hour;
+else (no)
+  :string += hour;
+endif
+
+if (minute < 10?) is (yes) then
+  :string += "0" + minute;
+else (no)
+  :string += minute;
+endif
+
+if (second < 10?) is (yes) then
+  :string += "0" + second;
+else (no)
+  :string += second;
+endif
+
+stop
+
+@enduml

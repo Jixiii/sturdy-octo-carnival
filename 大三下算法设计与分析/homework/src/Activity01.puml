@@ -1,0 +1,26 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+start
+:登录;
+if (身份判断) is (用户) then
+    fork
+    :增加客户;
+    fork again
+    :注销客户;
+    fork again
+    :充值;
+    fork again
+    :消费;
+  end merge
+elseif (管理员)
+    fork
+    :权限分配;
+    fork again
+    :用户创建;
+    fork again
+    :用户注销;
+    end merge
+endif
+stop
+@enduml

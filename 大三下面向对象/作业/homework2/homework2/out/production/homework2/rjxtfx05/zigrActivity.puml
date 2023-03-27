@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+|#85DEC9|系统|
+|#9FE9F5|学生|
+start
+:学生提出学籍资格管理请求;
+repeat
+    |#85DEC9|系统|
+    :系办审理;
+    :给出审理意见;
+    |#9FE9F5|学生|
+    backward :修改申请;
+    |#85DEC9|系统|
+repeat while (不通过)
+:更新学生名册;
+:将学籍资格变动通知学生;
+
+
+stop
+@enduml

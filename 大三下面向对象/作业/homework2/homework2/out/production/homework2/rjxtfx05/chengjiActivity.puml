@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+|#9FE9F5|学生|
+|#CDFDE0|老师|
+start
+repeat
+:老师汇总学生的成绩;
+:将成绩进行公示;
+
+if (是否有异议) is (是) then
+|#9FE9F5|学生|
+  :联系老师申请查看试卷;
+else (否)
+|#CDFDE0|老师|
+   :向系办提交本门课程考试成绩;
+endif
+|#85DEC9|系办|
+:对成绩进行审核;
+repeat while(审核通过)
+:保存该门考试成绩;
+:封存试卷;
+
+stop
+@enduml

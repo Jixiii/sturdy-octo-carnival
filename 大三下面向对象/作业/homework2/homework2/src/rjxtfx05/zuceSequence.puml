@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor       学生 #9FE9F5
+participant 系统 #8CBAE6
+database    数据库 #98A9FD
+
+activate 学生 #9FE9F5
+学生 -> 系统 :注册请求
+activate 系统 #8CBAE6
+loop 直到学生信息与数\n据库中的信息符合
+学生 -> 学生 :学生填写基本信息
+学生 -> 系统 :学生提交信息
+系统 -> 数据库:检查学生信息与数据\n库中的信息是否符合
+activate 数据库 #98A9FD
+alt 符合
+系统 -> 数据库: 将学生的信息存入数据库中
+deactivate 数据库
+系统 -> 学生: 发放注册证件
+
+else 不符合
+系统 -> 学生: 发出提示
+
+end
+end
+deactivate 系统
+
+
+
+
+
+
+
+@enduml

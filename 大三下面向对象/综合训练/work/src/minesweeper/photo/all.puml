@@ -1,0 +1,71 @@
+@startuml
+!pragma useVerticalIf on
+'https://plantuml.com/activity-diagram-beta
+
+start
+:选择难度;
+repeat
+:初始化界面;
+fork
+repeat
+if (鼠标点击) is (左键) then
+  if (点击处有雷) is (yes) then
+    :游戏结束;
+    stop
+  else (no)
+    :显示该处附近地雷数;
+    if (该处附近地雷数) is (0) then
+      :递归处理该处附近;
+    endif
+    :更新游戏进度;
+  endif
+else (右键)
+  if (该处标记为旗帜) is (yes) then
+    :该处标记为非旗帜;
+  else (no)
+    :该处标记为旗帜;
+  endif
+endif
+repeatwhile(游戏未结束)
+fork again
+:计时;
+end fork
+:提示是否再次游戏;
+repeatwhile(再次游戏)
+stop
+
+'
+'start
+':ClickServlet.handleRequest();
+':new page;
+'if (Page.onSecurityCheck) then (true)
+'  :Page.onInit();
+'  if (isForward?) then (no)
+'    :Process controls;
+'    if (continue processing?) then (no)
+'      stop
+'    endif
+'
+'    if (isPost?) then (yes)
+'      :Page.onPost();
+'    else (no)
+'      :Page.onGet();
+'    endif
+'    :Page.onRender();
+'  endif
+'else (false)
+'endif
+'
+'if (do redirect?) then (yes)
+'  :redirect process;
+'else
+'  if (do forward?) then (yes)
+'    :Forward request;
+'  else (no)
+'    :Render page template;
+'  endif
+'endif
+'
+'stop
+
+@enduml

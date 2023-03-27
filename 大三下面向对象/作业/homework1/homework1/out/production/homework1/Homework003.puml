@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+while (tempIndex < str.length())
+  :num = numAt(tempIndex);
+    if (num == 0)  then
+      :tempProduct = 1;
+      :numbers = 0;
+    else
+      :allEqualTo0 = false;
+      if (numbers < lenth) then
+        :tempProduct *= num;
+        : numbers++;
+        if (tempProduct >= max && numbers == lenth) then
+          :update max and firstIndex;
+
+        endif
+      else
+        :tempProduct /= numAt(tempIndex - lenth);
+        :tempProduct *= num;
+        if (tempProduct >= max) then
+                  :update max and firstIndex;
+        else
+        endif
+      endif
+    endif
+endwhile
+
+:printResult;
+
+stop
+
+@enduml

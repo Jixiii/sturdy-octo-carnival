@@ -1,0 +1,32 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:进入登录界面;
+:输入密码;
+while (密码不正确)
+  :重新输入密码;
+endwhile
+:进入页面;
+switch(选择界面)
+case(查询客户界面)
+:显示客户信息;
+case(修改客户信息界面)
+:修改客户信息;
+case(客户充值记录界面)
+:显示客户充值记录;
+case(客户消费记录界面)
+:显示客户消费记录;
+case(查看详情界面)
+:显示详情;
+case(管理员开户、销户界面)
+:;
+endswitch
+
+
+
+
+
+stop
+
+@enduml

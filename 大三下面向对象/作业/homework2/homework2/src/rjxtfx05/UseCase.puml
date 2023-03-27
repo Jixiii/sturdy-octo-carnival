@@ -1,0 +1,96 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+ left to right direction
+
+
+
+(注册) <|-- (学生注册功能)
+usecase (注册申请) #9FE9F5
+usecase (获得注册证件) #9FE9F5
+(学生注册功能) ..>(注册申请) :<<include>>
+(学生注册功能) ..>(获得注册证件) :<<include>>
+(注册) <|-- (系办注册管理功能)
+usecase (提交新生名单) #85DEC9
+usecase (注册统计) #85DEC9
+(系办注册管理功能) ..>(提交新生名单) :<<include>>
+(系办注册管理功能) ..>(注册统计) :<<include>>
+
+
+(资格管理) <|-- (学生资格功能)
+usecase (查看学籍资格变动通知) #9FE9F5
+(学生资格功能) ..> (查看学籍资格变动通知) :<<include>>
+(资格管理) <|-- (系办资格管理功能)
+usecase (提交审核意见) #85DEC9
+usecase (查看处理结果统计) #85DEC9
+usecase (查看学生成绩) #85DEC9
+usecase (查看学生名册) #85DEC9
+(系办资格管理功能) ..> (提交审核意见) :<<include>>
+(系办资格管理功能) ..> (查看处理结果统计) :<<include>>
+(提交审核意见) ..> (查看学生成绩) :<<include>>
+(提交审核意见) ..> (查看学生名册) :<<include>>
+(查看处理结果统计) ..> (查看学生成绩) :<<include>>
+(查看处理结果统计) ..> (查看学生名册) :<<include>>
+
+(成绩管理) <|-- (学生成绩功能)
+usecase (选课) #9FE9F5
+usecase (查看课表与成绩) #9FE9F5
+(学生成绩功能) ..> (选课) :<<include>>
+(学生成绩功能) ..> (查看课表与成绩) :<<include>>
+(成绩管理) <|-- (系办成绩管理功能)
+usecase (查看修课情况) #85DEC9
+usecase (查看成绩统计) #85DEC9
+usecase (课表安排) #85DEC9
+(系办成绩管理功能) ..> (查看修课情况) :<<include>>
+(系办成绩管理功能) ..> (查看成绩统计) :<<include>>
+(系办成绩管理功能) ..> (课表安排) :<<include>>
+(成绩管理) <|-- (教师成绩管理功能)
+usecase (查看教学安排) #CDFDE0
+usecase (上传学生课程成绩) #CDFDE0
+(教师成绩管理功能) ..> (查看教学安排) :<<include>>
+(教师成绩管理功能) ..> (上传学生课程成绩) :<<include>>
+(教师成绩管理功能) <.. (查看成绩统计) :<<extend>>
+
+(奖励管理) <|-- (学生奖励功能)
+usecase (查看奖励通知) #9FE9F5
+(学生奖励功能) ..> (查看奖励通知) :<<include>>
+(奖励管理) <|-- (系办奖励管理功能)
+usecase (奖励统计) #85DEC9
+usecase (提交奖励凭证) #85DEC9
+(系办奖励管理功能) ..> (奖励统计) :<<include>>
+(系办奖励管理功能) ..> (提交奖励凭证) :<<include>>
+
+
+
+actor 学生 #9FE9F5;line:9FE9F5;line.bold;
+actor 系办 #85DEC9;line:85DEC9;line.bold;
+actor 教师 #CDFDE0;line:CDFDE0;line.bold;
+
+usecase (注册) #8CBAE6
+usecase (资格管理) #8CBAE6
+usecase (成绩管理) #8CBAE6
+usecase (奖励管理) #8CBAE6
+
+usecase (学生注册功能) #9FE9F5
+usecase (学生资格功能) #9FE9F5
+usecase (学生成绩功能) #9FE9F5
+usecase (学生奖励功能) #9FE9F5
+
+usecase (系办注册管理功能) #85DEC9
+usecase (系办资格管理功能) #85DEC9
+usecase (系办成绩管理功能) #85DEC9
+usecase (系办奖励管理功能) #85DEC9
+
+usecase (教师成绩管理功能) #CDFDE0
+
+学生 -----> (学生注册功能)
+学生 -----> (学生资格功能)
+学生 -----> (学生成绩功能)
+学生 -----> (学生奖励功能)
+
+教师 -----> (教师成绩管理功能)
+
+系办 -----> (系办注册管理功能)
+系办 -----> (系办资格管理功能)
+系办 -----> (系办成绩管理功能)
+系办 -----> (系办奖励管理功能)
+@enduml

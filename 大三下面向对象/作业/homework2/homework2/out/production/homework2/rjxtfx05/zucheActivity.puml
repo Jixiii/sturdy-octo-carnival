@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+|#9FE9F5|学生|
+start
+:学生向系统发出注册请求;
+repeat :学生填写基本信息;
+    :学生提交信息;
+    |#8CBAE6|系统|
+    :检查学生信息与数据库中的信息是否符合;
+    backward :通知学生重新填写;
+repeat while (不符合)
+:将学生的信息存入数据库;
+:并向学生发放注册证件;
+
+
+stop
+@enduml

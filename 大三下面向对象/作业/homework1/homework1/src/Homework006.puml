@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+start
+:point[0]=random.nextInt(size);
+:point[1]=random.nextInt(size);
+if (point[0]<size>>1)then
+  :return 1;
+elseif (point[1]>size>>1)
+    :return 4;
+elseif (point[0]-point[1]<size>>1)
+    :return 3;
+else ()
+  :return 2;
+endif
+
+stop
+
+@enduml

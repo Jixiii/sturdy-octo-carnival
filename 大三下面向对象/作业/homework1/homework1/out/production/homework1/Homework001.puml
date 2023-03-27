@@ -1,0 +1,33 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+
+repeat
+:scanner.nextLine();
+repeat while (inputStr.length() == 0)
+
+if (inputStr.length() > 11) is (yes) then
+  :throw new Exception("超过11位");
+else (no)
+repeat
+if (inputChar is not a number) is (yes) then
+  :throw new Exception("输入非数字");
+else (no)
+  :nums[i] = inputNum;
+  :i++;
+endif
+repeat while(i <= inputStr.length());
+endif
+:sum=所有偶数位数字相加;
+:sum *= 3;
+:sum+=所有奇数位数字相加;
+if(sum == 0)
+:nums[11] = 0;
+else
+:nums[11] = 10 - sum % 10;
+endif
+:return nums;
+stop
+
+@enduml

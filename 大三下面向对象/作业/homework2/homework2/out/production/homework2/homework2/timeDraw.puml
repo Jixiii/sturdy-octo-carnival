@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+:setBackground(Color.WHITE);
+if (myTime) is (null) then
+  :type = NULL;
+    stop
+else
+endif
+  :graphics = new MyGraphics[8];
+  :add background Circle;
+  :add background "12";
+  :add background "3";
+  :add background "6";
+  :add background "9";
+  :add HourHand;
+  :add MinuteHand;
+  :add SecondHand;
+
+stop
+
+@enduml

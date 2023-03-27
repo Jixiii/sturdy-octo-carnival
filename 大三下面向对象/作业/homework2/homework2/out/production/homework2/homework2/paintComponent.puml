@@ -1,0 +1,19 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+start
+:super.paintComponent(g);
+if (type) is (NULL) then
+  :在DrawPanel的构造函数中，
+  你传递的引用参数是NULL。;
+else if (type) then (NOTARRAY)
+  :在DrawPanel的构造函数中，你传递的
+  引用参数必须是某个形状的数组类型。;
+else
+while (myGraphics in graphics)
+  :myGraphics.draw(g);
+endwhile
+endif
+stop
+
+@enduml

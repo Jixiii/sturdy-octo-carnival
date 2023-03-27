@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+start
+:initializeNums;
+if (type) is (horizontal) then
+  while (i < 10)
+    :print(horizontalRanges[i]);
+    while (j < nums[i])
+        :print(myChar);
+    endwhile
+  endwhile
+else (vertical)
+  :maxLine = max of nums;
+  while (i < 10)
+    while (j < nums[i])
+        :hasChar[i][j] = true;
+    endwhile
+  endwhile
+  while (i < 10)
+      while (j < nums[i])
+          if (hasChar[j][i]) then
+            :print(myChar);
+          else (no)
+            :print(" ");
+          endif
+      endwhile
+    endwhile
+    while (i < 10)
+      :print(verticalRanges[i]);
+      endwhile
+endif
+
+
+
+stop
+
+@enduml

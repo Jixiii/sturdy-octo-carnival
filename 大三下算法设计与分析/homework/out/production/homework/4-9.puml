@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+start
+while (25)
+  if (26)  then
+    :27;
+    stop
+  endif
+  :29;
+  if (30)  then
+    :31;
+    :32;
+    :33;
+  endif
+endwhile
+:36;
+stop
+
+@enduml

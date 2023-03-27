@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor       老师 #CDFDE0
+actor       学生 #9FE9F5
+actor       系办 #85DEC9
+
+activate 老师 #CDFDE0
+loop 审核通过
+老师 -> 老师 :汇总学生的成绩
+老师 -> 学生 :将成绩进行公示
+activate 学生 #9FE9F5
+alt 有异议
+    学生 -> 老师 :申请查看试卷;
+    deactivate 学生
+else 没有异议
+     老师 -> 系办 :提交本门课程考试成绩;
+     activate 系办 #85DEC9
+     系办 -> 系办 :对成绩进行审核
+     系办 -> 老师 :告知审核结果
+     deactivate 老师
+end
+end
+系办 -> 系办 :保存该门考试成绩
+系办 -> 系办 :封存试卷
+deactivate 系办
+
+@enduml

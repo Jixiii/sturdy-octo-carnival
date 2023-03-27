@@ -1,0 +1,79 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+!pragma useVerticalIf on
+start
+:do print(myChar) n times;
+switch()
+case(a)
+while (printTimes<n-2)
+  :print(myChar);
+  :print(blankSpace) 2*n-3 times;
+  :print(myChar);
+endwhile
+case(b)
+while (printTimes<n-2)
+  :print(blankSpace) 2*printTimes times;
+  :print(myChar);
+endwhile
+case(c)
+while (printTimes<n-2)
+  :print(blankSpace) 2*n-2*i times;
+  :print(myChar);
+endwhile
+case(d)
+while (printTimes<(n-1)/2)
+  :print(blankSpace) 2*i times;
+  :print(myChar);
+  :print(blankSpace) 2*n-4*i-3 times;
+  :print(myChar);
+  endwhile
+  if (n%2==1) is (yes) then
+    :print(blankSpace) n-1 times;
+    :print(myChar);
+  else (no)
+    :print(blankSpace) n-2 times;
+    :print(myChar+" "+myChar);
+  endif
+  while(printTimes<(n-1)/2)
+    :print(blankSpace) 2*i times;
+    :print(myChar);
+    :print(blankSpace) 2*n-4*i-3 times;
+    :print(myChar);
+  endwhile
+case(e)
+while (printTimes<(n-1)/2)
+  :print(myChar);
+  :print(blankSpace) 2*i-1 times;
+  :print(myChar);
+  :print(blankSpace) 2*n-4*i-3 times;
+  :print(myChar);
+  :print(blankSpace) 2*i-1 times;
+  :print(myChar);
+ endwhile
+  if (n%2==1) is (yes) then
+    :print(myChar);
+    :print(blankSpace) n-2 times;
+    :print(myChar);
+    :print(blankSpace) n-2 times;
+    :print(myChar);
+  else (no)
+    :print(myChar);
+    :print(blankSpace) n-3 times;
+    :print(myChar+" "+myChar);
+    :print(blankSpace) n-3 times;
+    :print(myChar);
+  endif
+  while (printTimes<(n-1)/2)
+    :print(myChar);
+    :print(blankSpace) 2*i-1 times;
+    :print(myChar);
+    :print(blankSpace) 2*n-4*i-3 times;
+    :print(myChar);
+    :print(blankSpace) 2*i-1 times;
+    :print(myChar);
+  endwhile
+endswitch
+:print(myChar) n times;
+stop
+
+@enduml
